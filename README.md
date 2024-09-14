@@ -39,12 +39,14 @@ Additionally, upscaling and expansion functionality is executed on Google Colab 
    ```
    cd ootd_vton
    ```
-3. Google Colab Setup (for upscaling and expansion)
+3. Download checkpoints from [Checkpoints OOTDiffusion](https://huggingface.co/spaces/levihsu/OOTDiffusion/tree/main/checkpoints)
+    
+4. Google Colab Setup (for upscaling and expansion)
     ```Set up the Colab notebook for upscaling using Real-ESRGAN or image expansion.
     Expose the Colab instance using Ngrok to connect it to your local application.
     ```
 
-4. Run the application:
+5. Run the application:
    ```
    python app.py
    ```
