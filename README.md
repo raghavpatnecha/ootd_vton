@@ -66,9 +66,9 @@ Additionally, upscaling and expansion functionality is executed on Google Colab 
 - Add support for various body types and poses.
 
 
-## App Screenshot
+## Sample Output
 
-![App Screenshot](debug_sample/Application_screenshot.png)
+More results can be found in debug_sample folder
 ![TryOn Screenshot](debug_sample/output_tmpso43ikxz.png.png)
 
 ## Acknowledgments
