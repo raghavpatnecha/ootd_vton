@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Tryon</title>
+	<script src="https://cdn.tailwindcss.com"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css">
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <!--<link rel="stylesheet" href="style.css">-->
+</head>
+<body>
+
+  <h1 class="demo heading-clean-and-grimey">
+    Virtual
+     <span class="script">Trial Room</span>
+    </h1>
+
+
+	<div class="circle">
+                <img class="profile_pic"
+                    src="https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg">
+    </div>
+	<button id="dropdown-btn" class="dropdown-button">
+      Change Model
+      <svg viewBox="0 0 320 512" width="13" title="angle-down" class="dropdown-icon">
+        <path d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z" />
+      </svg>
+    </button>
+    <div id="dropdown" class="dropdown-menu">
+
+      <div class="dropdown-item"><button>OOTD-Diffusion</button></div>
+      <div class="dropdown-item"><button>IDM-VTON</button></div>
+      <div class="dropdown-item"><button>IPAdapter</button></div>
+    </div>
+    <div class="container">
+        <div class="slide">
+            <div class="item" style="background-image: url(/static/examples/model/test_2.jpg);">
+              <div class="content">
+                <button class="button-send" disabled>
+					<span class="button-text">Change Pose</span>
+					<div class="button-loader">
+						<div></div>
+						<div></div>
+						<div></div>
+					</div>
+				</button>
+
+                </div>
+            </div>
+            <div class="item" style="background-image: url(/static/examples/model/test_3.jpg);">
+                <div class="content">
+                <button class="button-send" disabled>
+					<span class="button-text">Change Pose</span>
+					<div class="button-loader">
+						<div></div>
+						<div></div>
+						<div></div>
+					</div>
+				</button>
+
+                </div>
+            </div>
+            <div class="item" style="background-image: url(/static/examples/model/test_5.jpeg);">
+                <div class="content">
+                <button class="button-send" disabled>
+					<span class="button-text">Change Pose</span>
+					<div class="button-loader">
+						<div></div>
+						<div></div>
+						<div></div>
+					</div>
+				</button>
+
+                </div>
+            </div>
+            <div class="item" style="background-image: url(/static/examples/model/test_4.jpeg);">
+                <div class="content">
+                <button class="button-send" disabled>
+					<span class="button-text">Change Pose</span>
+					<div class="button-loader">
+						<div></div>
+						<div></div>
+						<div></div>
+					</div>
+				</button>
+
+
+            </div>
+
+			</div>
+		</div>
+
+        <div class="button">
+            <button class="prev"><i class="fa-solid fa-arrow-left"></i></button>
+            <button class="next"><i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+
+		<div class="sticky-input-container">
+			<form id="upload-form">
+			<div class="input-wrapper" style="position: absolute;">
+
+				<div class="btn" onclick="triggerFileInput()" id="imageUpload">
+					<input type="file" id="vton_img" name="vton_img" accept="image/*" required style="display: none;">
+					<span><i class="fas fa-arrow-up"></i></span>
+					<h1 id="upload-text">Upload File</h1>
+					<h2 id="upload-success" style="display: none;"><i class="fas fa-check"></i>Uploaded</h2>
+				</div>
+
+
+				<input type="text" name="garment_img_url" id="garment_img_url" style="width: 780px;" required>
+				<label for="garment_img_url">Paste the URL of outfit you want to try</label>
+
+				<button class="button-send" id="btn-submit" type="submit">
+					<span class="button-text">Try Outfit!</span>
+						<div class="button-loader">
+							<div></div>
+							<div></div>
+							<div></div>
+						</div>
+				</button>
+			</div>
+			</form>
+			<button class="button-send" id="upscale-btn" style="float:right;">
+					<span class="button-text">Upscale</span>
+					<div class="button-loader">
+						<div></div>
+						<div></div>
+						<div></div>
+					</div>
+				</button>
+			<button class="button-send" id="expand-btn" style="float:right;">
+					<span class="button-text">Expand</span>
+					<div class="button-loader">
+						<div></div>
+						<div></div>
+						<div></div>
+					</div>
+			</button>
+		</div>
+
+	</div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>

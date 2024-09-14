@@ -1,0 +1,7 @@
+*.ckpt
+__pycache__/
+*.pyc
+.uuid
+.env
+.venv
+env/

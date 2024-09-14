@@ -1,0 +1,536 @@
+@import url(https://fonts.googleapis.com/css?family=Kristi|Oswald:700);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /*background: #eaeaea; #F7F7FF*/
+	background:#F7FFFF;
+    overflow: hidden;
+}
+
+.container { 
+    background: #f5f5f5;
+    overflow: hidden;
+}
+
+.container .slide .item {
+    width: 200px;
+    height: 300px;
+    position: absolute;
+    top: 37%;
+    transform: translate(50%, -40%);
+    border-radius: 20px;
+    box-shadow: 0 10px 20px #505050;
+    display: inline-block;
+    transition: 0.5s;
+	left: 20%;
+	background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.slide .item:nth-child(1) {
+	top: -28%;
+    left: -5%;
+    transform: scale(0.5);
+    border-radius: 8px;
+    width: 768px;
+    height: 1024px;
+}
+
+.slide .item:nth-child(2) {
+    left: 40%;
+}
+
+.slide .item:nth-child(3) {
+    left: calc(40% + 220px);
+}
+
+.slide .item:nth-child(4) {
+    left: calc(40% + 440px);
+}
+
+.slide .item:nth-child(n + 5) {
+    left: calc(50% + 660px);
+    opacity: 0;
+}
+
+.item .content {
+    position: absolute;
+    top: 114%;
+    left: 10px;
+    width: 300px;
+    text-align: left;
+    color: #eee;
+    transform: translate(0, -50%);
+    font-family: system-ui;
+    display: none;
+}
+.item .content .button-send{ padding: .7rem 1.2rem;}
+.content button:hover {
+    color: #FFFFFF;
+    background-color: #2d3142;
+}
+
+.item .content button:disabled {
+            background-color: #c0c0c0;
+            cursor: not-allowed;
+            color: #6c757d;
+        }
+
+.slide .item:nth-child(2) .content {
+    display: block;
+}
+
+
+
+@keyframes animate {
+    from {
+        opacity: 0;
+        transform: translate(0, 100px);
+        filter: blur(33px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(0);
+        filter: blur(0);
+    }
+}
+
+.button {
+    width: 100%;
+    text-align: center;
+    position: fixed; /* Changed from absolute to fixed */
+    bottom: 105px; /* Increased to stay above the sticky input */
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Increased z-index to ensure visibility */
+}
+
+.button button {
+    width: 40px;
+    height: 35px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    margin: 0 5px;
+  
+    transition: 0.3s;
+    background-color: rgba(255, 255, 255, 0.9); /* Increased opacity for better visibility */
+}
+
+.btn {
+  position: relative;
+  width: 150px;
+  height: 50px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px 1px #0002;
+  overflow: hidden;
+  cursor: pointer;
+  font-family: system-ui;
+  border: 1px solid #e0e0e0;
+}
+.btn:before {
+  content: "";
+  position: absolute;
+  background: #2d3142;
+  top: 50%;
+  left: 50%;
+  transform: translate(-150%, -50%);
+  width: 135%;
+  height: 400%;
+  border-radius: 50px;
+}
+.btn.click:before {
+  animation: background 1s ease-in 1s forwards;
+}
+.btn.click h1 {
+  animation: upload-text 1s linear forwards;
+}
+.btn.click h2 {
+  animation: end-txt 2.5s linear 0.1s forwards;
+}
+.btn.click span {
+  animation: move-icon 2.5s linear 0.3s forwards;
+}
+.btn h1,
+.btn h2 {
+  position: absolute;
+  margin: 0;
+  white-space: nowrap;
+  font-size: 16px;
+}
+.btn h1 {
+  top: 13.5px;
+  left: 41px;
+  color: black;
+}
+.btn h2 {
+  top: 116.5px;
+  left: 27px;
+  color: #efefef;
+  display: flex;
+  gap: 10px;
+}
+.btn span {
+  position: absolute;
+  top: 13px;
+  left: 21px;
+  color: #2c3d55;
+}
+
+@keyframes upload-text {
+  0% {
+    left: 50px;
+    transform: scalex(1);
+  }
+  25% {
+    left: 35px;
+    transform: scalex(0.9);
+  }
+  30% {
+    transform: scalex(1);
+  }
+  100% {
+    left: 245px;
+  }
+}
+@keyframes background {
+  0% {
+    transform: translate(-150%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+@keyframes move-icon {
+  0% {
+    left: 18px;
+    top: 17px;
+  }
+  20% {
+    left: 70px;
+    top: 17px;
+  }
+  40% {
+    color: #000c;
+  }
+  65% {
+    left: 70px;
+    top: 17px;
+    color: #fff;
+  }
+  78% {
+    left: 70px;
+    top: 25px;
+  }
+  100% {
+    left: 70px;
+    top: -200px;
+    color: #fff;
+  }
+}
+@keyframes end-txt {
+  0% {
+    top: 116.5px;
+  }
+  70% {
+    top: 116.5px;
+  }
+  100% {
+    top: 16.5px;
+  }
+}
+
+ .sticky-input-container {
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 18px;
+    margin-left: 35px;
+    margin-right: 30px;
+    margin-top: 30px; 
+    position: fixed;
+    z-index: 999;
+    padding: 10px; /* Reduced padding to make container smaller */
+    bottom: 0;
+    width: 95%;
+    background: white;
+    /*box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); */
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+ 
+}
+
+.input-wrapper {
+   /* max-width: 1200px; */
+    margin: 0px 10px auto;
+    display: flex;
+    justify-content: space-between; /* Aligns the input and button */
+    align-items: center;
+    gap: 10px;
+}
+
+.sticky-input-container input[type="text"] {
+    flex-grow: 1;
+    padding: 10px;
+    font-size: 16px;
+    border-color: transparent;
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid #000;
+    height: 2.25rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+	margin-left: 25px;
+}
+
+.sticky-input-container input[type="file"] {
+    display: none;
+}
+
+.button-send {
+    background-color: black;
+    appearance: none;
+    border: none;
+    padding: 1rem 2rem;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+	margin-left:20px;
+}
+
+.button-send:hover {
+    background-color: #2c2d2f;
+}
+
+.button-send:active {
+    transform: translate3d(3px, 3px, 0);
+}
+
+.sticky-input-container label {
+    color: black;
+    position: absolute;
+    left: 210px;
+    transition: all 0.3s;
+    cursor: pointer;
+	font-family: system-ui;
+}
+
+input:focus + label,
+input:valid + label {
+    transform: translateY(-1.25rem);
+    font-size: 0.8125rem;
+    color: var(--gray-base);
+}
+
+.profile_pic {
+    width: 100%; /* Adjusted to fit within the circle */
+    max-height: 100%; /* Ensure it fits within the circle */
+    display: block;
+    object-fit: cover; /* Ensures the image covers the circle area */
+}
+
+
+.circle {
+	border-radius: 50%; /* Ensure the image remains circular */
+    overflow: hidden;
+    width: 55px;
+    height: 55px;
+    border: .4px solid rgba(255, 255, 255, 0.2);
+    position: fixed; /* Position the element fixed to the viewport */
+    top: 10px; /* Adjust the distance from the top */
+    right: 10px; /* Adjust the distance from the right */
+    z-index: 1000; /* Ensure the profile is above other elements */
+	box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.1), 1px 1px 1px rgba(0, 0, 0, 0.06);
+
+}
+
+/* Main Button Styles */
+.dropdown-button {
+  background-color: white;
+  display: inline-flex; /* Prevent full width */
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  color: black;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  font-weight: 500;
+  transition: background-color 0.2s;
+  cursor: pointer;
+  position: absolute;
+  top: 1%;
+  left: 14%;
+}
+
+.dropdown-button:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.dropdown-icon {
+  margin-left: 8px;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+  position: absolute;
+  top: 7.5%;
+  left: 12%;
+  display: none; /* Hidden by default */
+  width: 240px;
+  background-color: #18181b; /* Dark background */
+  color: #fff;
+  font-size: 0.875rem; /* Small text size */
+  font-weight: 500;
+  border: 1px solid #1c1c1f; /* Darker border */
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-item {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.dropdown-item button {
+  width: 100%;
+  padding: 6px 12px;
+  background: none;
+  border: none;
+  color: white;
+  text-align: left;
+}
+
+.dropdown-item button:hover {
+  background-color: #1c1c1f;
+}
+
+/* Dropdown Visibility Control */
+.dropdown-open {
+  display: block; /* Show dropdown */
+}
+
+.dropdown-close {
+  display: none; /* Hide dropdown */
+}
+
+/* Keyframes for Smooth Transition */
+@keyframes dropdownOpen {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes dropdownClose {
+  to {
+    transform: scale(0);
+  }
+}
+
+
+.button-loader {
+  display: flex;
+  gap: .25rem;
+}
+.button-loader > div {
+  width: .8rem;
+  height: .8rem;
+  background-color: white;
+  border-radius: 50%;
+  animation: 1.2s infinite ease-in-out scaleUp;
+}
+
+.button-loader  div:nth-child(1) {
+  animation-delay: -0.32s;
+}
+.button-loader  div:nth-child(2) {
+  animation-delay: -0.16s;
+}
+.button-send {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 3.5rem;
+}
+.button-loader {
+  display: none;
+  
+}
+
+.button-send.loading .button-text {
+  display: none;
+}
+.button-send.loading .button-loader{
+  display: flex;
+}
+
+.button-send.success {
+  background-color: #1fa47c;
+}
+.button-send.loading {
+  cursor: wait;
+}
+
+
+@keyframes scaleUp{
+  0%, 80%, 100%{
+    transform: scale(0);
+  }
+  40%{
+    transform: scale(1);
+  }
+}
+
+.demo{
+	position: absolute;
+    left: 86%;
+    top: 13px;
+    cursor: pointer;
+}
+
+
+ .heading-clean-and-grimey {
+   color:#c50000;
+   font-weight: 500;
+   font-size: 1.7em;
+   text-transform: uppercase;
+   text-align: center;
+   
+ }
+
+.script {
+  font-family: Kristi;
+  color: #000;
+  font-size: 1.4em;
+  text-transform: lowercase;
+  transform:rotate(-15deg);
+  -ms-transform:rotate(-15deg); /* IE 9 */
+  -webkit-transform:rotate(-15deg); /* Safari and Chrome */
+  text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2);
+  display: block;
+  margin-top: -0.5em;
+  margin-left: 0.7em;
+  text-decoration:underline;
+  text-decoration-color: #c50000;
+}
+
+.mfp-force-scrollbars.mfp-wrap {
+        overflow-y: auto !important;
+        overflow-x: auto !important;
+    }
+    .mfp-force-scrollbars .mfp-img {
+        max-width: none;
+    }
+    .mfp-force-scrollbars .mfp-close {
+        position: fixed;
+    }
